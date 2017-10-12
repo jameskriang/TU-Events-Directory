@@ -1,7 +1,6 @@
 import React from 'react';
 import { StatusBar, TouchableHighlight ,TextInput,ListView,Image, AppRegistry, StyleSheet, Text, View ,TouchableOpacity} from 'react-native';
 import api from './api';
-
 let ds;
 
 export default class ListScreen extends React.Component {
@@ -25,46 +24,40 @@ export default class ListScreen extends React.Component {
 
   render(){
       return (
+
         <View style={styles.container}>
-            <TouchableHighlight>
-            <TextInput onChangeText={(text)=>this.search(text)}
+        <TouchableHighlight>
+            <TextInput
               style={{height:50,borderColor:'gray',borderWidth:1,borderRadius:10,margin:3,padding:5}}
               placeholder="search"
             />
             </TouchableHighlight>
+          <TouchableHighlight onPress={()=>this.props.navigator.push({index:2})}>
+            <View style={styles.popularBar}>
+              <Text style={styles.detailText}> Popular Event </Text>
+            </View>
+          </TouchableHighlight>
 
-          <ListView
-            dataSource={this.state.dataSource}
-            renderRow={(rowData) =>
-
-              <TouchableOpacity onPress={()=> this.props.navigator.push({index:1,passProps:{imdbID: rowData.imdbID}})}>
-                <View style={styles.row}>
-                  <View style={{flex:3}}>
-                    <Image style={styles.image} source={{uri: rowData.Poster}}/>
-                  </View>
-                  <View style={{flex:10,padding:10}}>
-                    <Text style={styles.title}> {rowData.Title} ({rowData.Year})</Text>
-                  </View>
-                  <View style={{flex:1,justifyContent:'center'}}>
-                    <Text style={styles.title}> > </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-
-            }
-            renderSeparator={(sectionID , rowID , adjacentRowHighlighted) =>
-              <View key={rowID} style={{height:1 , backgroundColor: 'lightgray'}}/>
-            }
+          <Image
+            style={{height: 350}}
+            source={require('./map.png')}
           />
 
+
+        <TouchableHighlight onPress={()=>this.props.navigator.push({index:1})}>
+          <View style={styles.detailBar}>
+            <Text style={styles.detailText}> Event Name </Text>
+            <Text> Location : some where </Text>
+            <Text> Time : 16:00  </Text>
+          </View>
+        </TouchableHighlight>
         </View>
     );
   }
 }
 const styles=StyleSheet.create({
   container:{
-    padding:10,
-    paddingTop:65,
+    paddingTop:64,
     flex:1
   },
   searchBar:{
@@ -84,5 +77,18 @@ const styles=StyleSheet.create({
   },
   titile:{
     fontSize:20
+  },
+  popularBar:{
+    width: 320,
+    height: 50
+  },
+  detailBar:{
+    width: 320,
+    height: 80,
+    backgroundColor:'green'
+  },
+  detailText:{
+    textAlign: 'center',
+
   }
 });

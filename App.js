@@ -4,7 +4,7 @@ import {Navigator} from 'react-native-deprecated-custom-components';
 import MainScreen from './MainScreen.js';
 import DetailScreen from './DetailScreen.js';
 
-const routes = [{index:0,title:'Movie Explorer'},{index:1, title:'Movie Detail'}];
+const routes = [{index:0,title:'Explore'},{index:1, title:'Event Detail'}];
 
 export default class App extends React.Component {
   render() {
