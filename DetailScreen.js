@@ -20,24 +20,34 @@ export default class DetailScreen extends React.Component {
   render(){
     return (
       <View style={styles.container}>
-        <View style={{flex:1}}>
-          <Image style={styles.image} source={{uri: this.state.Poster}}/>
-          <Text style={styles.subTitle}>Meta: {this.state.Metascore}</Text>
-          <Text style={styles.subTitle}>imDB: {this.state.imdbRating}</Text>
-          </View>
-        <View style={{flex:2,padding:10}}>
-          <Text style={styles.title}>{this.state.Title} ({this.state.Year})</Text>
-          <Text>Genre: {this.state.Genre} ({this.state.Runtime})</Text>
+        <View style={{flex:1,padding:5}}>
+          <Text style={styles.title}>Bit Coin Seminar</Text>
           {this.saperator()}
-          <Text>Released: {this.state.Released} [{this.state.Rated}]</Text>
+          <Image style={styles.image} source={require('./img/photo.jpg')}/>
           {this.saperator()}
-          <Text>{this.state.Plot}</Text>
+          <Text style={styles.topic}>Description</Text>
+
+          <Text style={styles.topicText}>One of the first major conferences dedicated to cryptocurrency investments.
+          It will take place in Thammasat, a financial Thammasat hub and headquarter of many prospective companies.{"\n"}{"\n"}
+
+          Smile-Expo, ICO Event organizer, has been holding events dedicated to blockchain and cryptocurrencies for several years.
+          {"\n"}{"\n"}ICO Event London is a specialized event on the most popular and relevant cryptocurrency crowdsale topic.</Text>
+
           {this.saperator()}
-          <Text>Director: {this.state.Director}</Text>
+          <Text style={styles.topic}>Event Date & Time</Text>
+
+          <Text style={styles.topicText}>Thursday, November 13{"\n"}
+                                          16:00 PM - 20:00 PM</Text>
           {this.saperator()}
-          <Text>Write: {this.state.Writer}</Text>
+          <Text style={styles.topic}>Location</Text>
+
+          <Text style={styles.topicText}>SC Building, Thammasat Rangsit University</Text>
           {this.saperator()}
-          <Text>Actors: {this.state.Actors}</Text>
+          <Text style={styles.topic}>More Infomation</Text>
+
+          <Text style={styles.topicText}>Please contact:{"\n"}{"\n"}
+                                        www.bitcoin.org/en{"\n"}
+                                        (+66)2-999-9999</Text>
         </View>
       </View>
 
@@ -52,12 +62,23 @@ const styles=StyleSheet.create({
     flex:1
   },
   image:{
-    height:200
+    flex: 1,
+    width: null,
+    height: null,
+    resizeMode: 'contain'
   },
-  titile:{
-    fontSize:25
+  title:{
+    fontSize:25,
+    fontWeight:'bold'
+  },
+  topic:{
+    fontSize:12,
+    fontWeight:'bold'
   },
   subTitle:{
     fontSize:20
+  },
+  topicText:{
+    fontSize:10
   }
 });
