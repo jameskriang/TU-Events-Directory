@@ -1,10 +1,10 @@
 let rootURL = 'https://www.omdbapi.com/';
 
 exports.search = function(q){
-  let url =`${rootURL}?apikey=3f1288a7&s=${q}`;
+  let url = `${rootURL}?apikey=3f1288a7&s=${q}`;
   console.log(url);
   return fetch(url)
-    .then((resp)=> resp.json())
+    .then((resp)=>resp.json())
     .then((json)=>{
       return json.Search;
     });
